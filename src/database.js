@@ -3,7 +3,7 @@ const db = new sqlite3.Database('./databases/database.db'); // File-based databa
 
 
 db.serialize(() => {
-  db.run("CREATE TABLE IF NOT EXISTS buku (id INTEGER PRIMARY KEY, judul TEXT, pengarang TEXT, penerbit TEXT)", (err) => {
+  db.run("CREATE TABLE IF NOT EXISTS buku (id INTEGER PRIMARY KEY, title TEXT, author TEXT, publisher TEXT)", (err) => {
     if (err) {
       console.error('Error creating table:', err.message);
     } else {
@@ -13,7 +13,7 @@ db.serialize(() => {
           console.error('Error checking table:', err.message);
         } else if (row.count === 0) {
           
-          const stmt = db.prepare("INSERT INTO buku (judul, pengarang, penerbit) VALUES (?, ?, ?)");
+          const stmt = db.prepare("INSERT INTO buku (title, author, publisher) VALUES (?, ?, ?)");
           stmt.run('Book 1', 'Author 1', 'Publisher 1');
           stmt.run('Book 2', 'Author 2', 'Publisher 2');
           stmt.finalize();

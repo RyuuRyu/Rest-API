@@ -9,33 +9,33 @@ router.get('/buku', (req, res) => {
       res.status(400).json({ error: err.message });
       return;
     }
-    res.json({ data: rows });
+    res.json({ message: "GET is Successful", data: rows });
   });
 });
 
 
 router.post('/buku', (req, res) => {
-  const { judul, pengarang, penerbit } = req.body;
-  db.run("INSERT INTO buku (judul, pengarang, penerbit) VALUES (?, ?, ?)", [judul, pengarang, penerbit], function (err) {
+  const { title, author, publisher } = req.body;
+  db.run("INSERT INTO buku (title, author, publisher) VALUES (?, ?, ?)", [title, author, publisher], function (err) {
     if (err) {
       res.status(400).json({ error: err.message });
       return;
     }
-    res.json({ message: "berhasil menambahkan", id: this.lastID, changes: this.changes });
+    res.json({ message: "POST is Successful", id: this.lastID, changes: this.changes });
   });
 });
 
 
 router.put('/buku/:id', (req, res) => {
-  const { judul, pengarang, penerbit } = req.body;
+  const { title, author, publisher } = req.body;
   const id = req.params.id;
 
-  let sql = "UPDATE buku SET judul = ?, pengarang = ?";
-  const params = [judul, pengarang];
+  let sql = "UPDATE buku SET title = ?, author = ?";
+  const params = [title, author];
 
-  if (penerbit) {
-    sql += ", penerbit = ?";
-    params.push(penerbit);
+  if (publisher) {
+    sql += ", publisher = ?";
+    params.push(publisher);
   }
 
   sql += " WHERE id = ?";
@@ -45,7 +45,7 @@ router.put('/buku/:id', (req, res) => {
     if (err) {
       return res.status(400).json({ error: err.message });
     }
-    res.json({ message: "berhasil mengubah", changes: this.changes });
+    res.json({ message: "PUT Successful", changes: this.changes });
   });
 });
 
@@ -58,7 +58,7 @@ router.delete('/buku/:id', (req, res) => {
     if (err) {
       return res.status(400).json({ error: err.message });
     }
-    res.json({ message: "User deleted successfully", changes: this.changes });
+    res.json({ message: "DELETE is Successfull", changes: this.changes });
   });
 });
 
