@@ -12,6 +12,8 @@ This was made for a final Exam.
 # Head to the '/src' and run the server
 
   - ```cd /path/to/the/project/src```
+
+    Then Run:
   
   - ``` node index.js```
 
@@ -22,7 +24,7 @@ This was made for a final Exam.
    - Method: GET
    - URL: `http://localhost:4000/buku`
 
-2. **POST a new user**: 
+2. **POST a new book**: 
    - Method: POST
    - URL: `http://localhost:4000/buku`
    - Body: JSON
@@ -48,6 +50,6 @@ This was made for a final Exam.
 
 4. **DELETE a book**: 
    - Method: DELETE
-   - URL: `http://localhost:4000/buku/1`
+   - URL: `http://localhost:4000/buku/'the actual id of the book'`
 
 By following these steps, you can create a database first and then build an API that interacts with it, ensuring a well-structured and efficient API.
