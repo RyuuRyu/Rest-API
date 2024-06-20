@@ -3,7 +3,7 @@ This was made for a final Exam.
 
 # Usage:
 
-**nstall SQLite and Express**
+**Install SQLite and Express**
 
   - ```npm install sqlite3```
 
