@@ -1,15 +1,15 @@
 This is a simple Rest API for a Library Database that I made using Express.js in NodeJs, and usinng Sqlite3 for the database.
 This was made for a final Exam.
 
-## Usage:
+# Usage:
 
-# Install SQLite and Express
+## Install SQLite and Express
 
   - ```npm install sqlite3```
 
   - ```npm install express.```
 
-# Head to the '/src' and run the server
+## Head to the '/src' and run the server
 
   - ```cd /path/to/the/project/src```
 
