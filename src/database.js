@@ -21,6 +21,25 @@ db.serialize(() => {
       });
     }
   });
+
+  db.run("CREATE TABLE IF NOT EXIST borrow (id INTEGER PRIMARY KEY, borrowers TEXT, title TEXT, date TEXT)", (err) => {
+    if (err) {
+      console.error('Error creating table:', err.message);
+    } else {
+
+      db.get("SELECT COUNT(*) AS count FROM borrow", (err, row) => {
+        if (err) {
+          console.error('Error chekcing table:', err.message);
+        } else if (row.count === 0) {
+
+          const stmt = db.prepare("INSERT INTO borrow (borrowers, title,date) VALUES (?, ?, ?)");
+          stmt.run('Borrowers 1', 'Title 1', 'Date 1');
+          stmt.run('Borrowers 2', 'Title 2', 'Date 2');
+          stmt.finalize();
+        }
+      })
+    }
+  });
 });
 
 module.exports = db;

@@ -3,7 +3,7 @@
 const express = require('express');
 const app = express();
 const db = require('./database');
-const router = require('./routes/router');
+const router = require('./routes/buku');
 const port = 4000;
 
 app.use(express.json());
