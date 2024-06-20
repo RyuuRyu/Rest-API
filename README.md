@@ -3,13 +3,13 @@ This was made for a final Exam.
 
 # Usage:
 
-## Install SQLite and Express
+**nstall SQLite and Express**
 
   - ```npm install sqlite3```
 
   - ```npm install express.```
 
-## Head to the '/src' and run the server
+**Head to the '/src' and run the server**
 
   - ```cd /path/to/the/project/src```
 
