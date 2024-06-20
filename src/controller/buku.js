@@ -22,21 +22,19 @@ const addNewBooks = (req, res) => {
 };
 
 const editBooks = (req, res) => {
-    const {title, author, publisher } = req.body;
-    const id = req.params.id;
+  const { title, author, publisher } = req.body;
+  const id = req.params.id;
 
-    let sql = "UPDATE buku SET title = ?, author = ?, publisher = ?";
-    const params = [ title, author, publisher, id ];
 
-    sql += " WHERE id = ?";
-    params.push(id);
+  let sql = "UPDATE buku SET title = ?, author = ?, publisher = ? WHERE id = ?";
+  const params = [title, author, publisher, id ];
 
-    db.run(sql, params, function(err) {
+  db.run(sql, params, function(err) {
       if (err) {
-        return res.status(400).json ({ error: err.message });
+          return res.status(400).json({ error: err.message });
       }
-      res.json ({ message: "PUT Successful", changes: this.changes});
-    });
+      res.json({ message: "PUT Successful", changes: this.changes });
+  });
 };
 
 const deleteBooks = (req, res) => {
