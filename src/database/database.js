@@ -1,5 +1,5 @@
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./databases/database.db'); // File-based database
+const db = new sqlite3.Database('./db/database.db'); // File-based database
 
 
 db.serialize(() => {
@@ -22,7 +22,7 @@ db.serialize(() => {
     }
   });
 
-  db.run("CREATE TABLE IF NOT EXIST borrow (id INTEGER PRIMARY KEY, borrowers TEXT, title TEXT, date TEXT)", (err) => {
+  db.run("CREATE TABLE IF NOT EXISTS borrow (id INTEGER PRIMARY KEY, borrowers TEXT, title TEXT, date TEXT)", (err) => {
     if (err) {
       console.error('Error creating table:', err.message);
     } else {
