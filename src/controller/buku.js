@@ -49,6 +49,16 @@ const deleteBooks = (req, res) => {
   });
 };
 
+const getAllBorrowers = (req, res) => {
+  db.all("SELECT * FROM borrow", [], (err, rows) => {
+      if (err) {
+          res.status(400).json({ error: err.message });
+          return;
+      }
+      res.json({ message: "GET is successful", data: rows });
+  });
+};
+
 module.exports = {
     getAllBooks,
     addNewBooks,
